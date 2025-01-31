@@ -6,5 +6,9 @@ export const ROUTES = {
     orbit: '/orbit',
     coin: '/coin',
   },
-  ownCreations: {},
+  ownCreations: {
+    chakraLoader: '/chakra-loader',
+    animePowerUp: '/anime-power-up',
+    energyFlow: '/energy-flow',
+  },
 } as const

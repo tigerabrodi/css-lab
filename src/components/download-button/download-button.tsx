@@ -1,6 +1,6 @@
 import './styles.css'
 
-export default function DownloadButton() {
+export function DownloadButton() {
   return (
     <button aria-label="Download PDF" className="download-button">
       {ArrowDown}

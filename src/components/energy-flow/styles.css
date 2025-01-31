@@ -1,0 +1,27 @@
+.energy-flow {
+  background: linear-gradient(90deg, #00ff88, #00ffff);
+  width: 100px;
+  height: 100px;
+  animation: energy-pulse 2s ease-in-out infinite;
+  /* Black says show element's actual color */
+  /* Not using clip path here because it's for hard edges and not masking with linear gradients */
+  mask: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+@keyframes energy-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur();
+  }
+}

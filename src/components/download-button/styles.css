@@ -15,12 +15,12 @@
 }
 
 /* Trick for centering the grid items */
-svg {
+.download-button svg {
   grid-area: 1 / 1;
   transition: transform 0.2s var(--ease-in-out-circ);
 }
 
-svg:first-of-type {
+.download-button svg:first-of-type {
   transform: translateY(-150%);
 }
 

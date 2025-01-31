@@ -1,0 +1,79 @@
+.toast {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px 13px;
+  width: 100%;
+  font-size: 13px;
+  border-radius: 8px;
+  box-shadow:
+    0px 0px 0px 1px rgba(0, 0, 0, 0.08),
+    0px 1px 2px -1px rgba(0, 0, 0, 0.08),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.04);
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity 400ms,
+    transform 400ms;
+}
+
+/* If the first one, it'll always be 0 */
+/* It's fine because with absolute and bottom 0 since its inside the toaster, it'll always be at the bottom */
+/* Let's say we have a toast at position 2 */
+/* 2 * (100% + 16px) * -1 = -232px */
+/* The equation is the same, the only thing that changes is the --index, we always move up by full height including the gap, -1 is just there to turn it into a negative value to push it upwards */
+.toast[data-mounted='true'] {
+  transform: translateY(calc(var(--index) * (100% + var(--gap)) * -1));
+  opacity: 1;
+}
+
+.title {
+  font-weight: 500;
+  color: #1b1b1d;
+}
+
+.description {
+  font-weight: normal;
+  line-height: 1;
+  color: #717175;
+}
+
+.toaster {
+  position: absolute;
+  left: 50%;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  width: 356px;
+  transform: translateX(-50%);
+  --gap: 16px;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  margin-top: auto;
+  padding-inline: 12px;
+  width: auto;
+  height: 32px;
+  font-size: 14px;
+  font-weight: 500;
+  background: #fff;
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.04);
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 24px;
+  height: 100%;
+}

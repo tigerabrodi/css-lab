@@ -1,0 +1,38 @@
+@keyframes text-reveal {
+  from {
+    transform: translateY(120%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.reveal-letter {
+  animation: text-reveal 0.45s var(--ease-out-quart) backwards;
+  animation-delay: calc(var(--index) * 0.03s);
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  display: inline-block;
+}
+
+.reveal-wrapper {
+  overflow: hidden;
+  padding: 16px;
+}
+
+.button {
+  width: 100%;
+  margin-top: 24px;
+  position: relative;
+  height: 32px;
+  font-size: 14px;
+  padding-inline: 12px;
+  font-weight: 500;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.04);
+}

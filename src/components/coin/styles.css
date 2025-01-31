@@ -1,0 +1,62 @@
+.coin {
+  perspective: 500px;
+  transform-style: preserve-3d;
+  display: grid;
+  place-items: center;
+  animation: coin-flip 0.5s linear infinite;
+}
+
+@keyframes coin-flip {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+/* All elements that need to stack */
+.first-coin,
+.second-coin,
+.coin-inner-1,
+.coin-inner-2 {
+  grid-area: 1/1;
+  width: 56px;
+  height: 56px;
+}
+
+/* Front of coin */
+.first-coin {
+  backface-visibility: hidden;
+  transform: translateZ(2px);
+}
+
+/* Back of coin */
+.second-coin {
+  backface-visibility: hidden;
+  transform: rotateY(180deg) translateZ(2px);
+}
+
+/* Inner edges */
+.coin-inner-1 {
+  background: #614204;
+  transform: translateZ(1px);
+  border-radius: 100%;
+}
+
+.coin-inner-2 {
+  background: #614204;
+  transform: translateZ(-1px);
+  border-radius: 100%;
+}
+
+/* The trick here is to understand the Z axis. The inner ones serve as the "edges" of the coin. */
+
+/* In actuality they're just stacked. You see either front or back.
+
+- first-coin is the front
+- coin-inner-1 is the front edge
+- coin-inner-2 is the back edge
+- second-coin is the back
+
+*/

@@ -4,6 +4,7 @@ export const ROUTES = {
     sonnerToast: '/sonner-toast',
     textReveal: '/text-reveal',
     orbit: '/orbit',
+    coin: '/coin',
   },
   ownCreations: {},
 } as const

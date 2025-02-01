@@ -1,0 +1,28 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 20px;
+  justify-content: center; /* Centers the grid if container is wider */
+}
+
+.grid-item {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to top, #000, red);
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.5s var(--ease-out-quart);
+  animation-fill-mode: forwards;
+  animation-delay: calc(0.1s * var(--index));
+}

@@ -1,0 +1,61 @@
+.dock-container {
+  --dock-card-size: 60px;
+  --dock-card-gap: 10px;
+  --column-size: calc(var(--dock-card-size) + var(--dock-card-gap));
+  display: grid;
+  grid-template-columns: repeat(var(--cards-length), var(--column-size));
+  transition: grid-template-columns 0.2s ease-in-out;
+  transition-delay: 300ms;
+}
+
+.dock-container:hover {
+  transition: 200ms ease-out;
+  transition-delay: 0ms;
+}
+
+.dock-card-inner {
+  background-color: white;
+  box-shadow:
+    0 0 4px 0 rgba(0, 0, 0, 0.1),
+    0 0 6px 0 rgba(0, 0, 0, 0.1);
+  width: var(--dock-card-size);
+  height: var(--dock-card-size);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: monospace;
+  cursor: pointer;
+  transition: transform 250ms ease-out;
+  position: relative;
+}
+
+.dock-card {
+  transition-delay: 50ms;
+}
+
+.dock-card:hover {
+  z-index: 1;
+}
+
+.dock-card:hover .dock-card-inner {
+  background-color: #f5e9e9;
+  transform: scale(1.4) translateY(-5px);
+}
+
+/* I know I don't need to duplicate styles below and can use commas */
+/* But it's to be clear, also for educational purposes */
+
+/* Direct sibling after the hovered card */
+.dock-card:hover + .dock-card .dock-card-inner {
+  transform: scale(1.1) translateY(-2px);
+  background-color: #f5e9e9;
+}
+
+/* Direct sibling before the hovered card */
+.dock-card:has(+ .dock-card:hover) .dock-card-inner {
+  transform: scale(1.1) translateY(-2px);
+  background-color: #f5e9e9;
+}

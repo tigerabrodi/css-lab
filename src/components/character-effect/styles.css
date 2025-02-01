@@ -1,0 +1,79 @@
+.character-effect-body {
+  perspective: 1000px;
+  --transition-duration: 250ms;
+}
+
+.character-container {
+  position: relative;
+  width: 300px;
+  aspect-ratio: 9 / 18;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform var(--transition-duration) ease-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.character-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-duration) ease-out;
+  z-index: 1;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0) 40%,
+    /* Moved in from 50% */ rgba(0, 0, 0, 0.5) 100%
+      /* Increased opacity from 0.4 to 0.5 */
+  );
+}
+
+.character-container:hover::after {
+  opacity: 1;
+}
+
+.character-container:hover {
+  transform: rotateX(20deg);
+}
+
+.character-container:hover .shown-image {
+  transform: translateY(0px) rotateX(-20deg) translateZ(100px);
+  opacity: 1;
+}
+
+.character-container:hover .logo {
+  transform: translateX(-50%) translateZ(100px) translateY(-10px)
+    rotateX(-20deg) scale(1.1);
+}
+
+.shown-image {
+  z-index: 2;
+  height: 80%;
+  object-fit: cover;
+  transform: translateY(40px);
+  position: absolute;
+  transition:
+    transform var(--transition-duration) ease-out,
+    opacity var(--transition-duration) ease-out;
+  opacity: 0;
+}
+
+.background-image {
+  position: absolute;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.logo {
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  width: 70%;
+  transition: transform var(--transition-duration) ease-out;
+}

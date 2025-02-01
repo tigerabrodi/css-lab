@@ -1,0 +1,32 @@
+.image-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.image-grid {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.image-grid-container:has(.image-grid:hover) .image-grid:not(:hover) img {
+  filter: blur(2px) brightness(0.7);
+  transform: scale(0.95);
+}
+
+.image-grid:hover img {
+  transform: scale(1.1);
+  filter: blur(0px) brightness(1.1);
+}
+
+.image-grid:hover img {
+  transform: scale(1.1);
+  filter: blur(0px);
+}
+
+.image-grid img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.2s ease-out;
+}

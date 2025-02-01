@@ -10,5 +10,10 @@ export const ROUTES = {
     chakraLoader: '/chakra-loader',
     animePowerUp: '/anime-power-up',
     energyFlow: '/energy-flow',
+    retroLoading: '/retro-loading',
+    imageGridHover: '/image-grid-hover',
+    staggeredGridItem: '/staggered-grid-item',
+    slideUpCards: '/slide-up-cards',
+    terminalTypingEffect: '/terminal-typing-effect',
   },
 } as const

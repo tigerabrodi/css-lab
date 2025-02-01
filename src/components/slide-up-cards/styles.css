@@ -1,0 +1,42 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  --padding: 8px;
+  padding: var(--padding);
+  border-bottom: 1px solid #6b6b6b7d;
+  cursor: pointer;
+}
+
+.card:hover .card-details {
+  transform: translateY(0);
+}
+
+.card:hover .card::after {
+  transform: scaleY(1);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+  bottom: 0;
+  width: calc(100% - var(--padding) * 2);
+  transition: all 0.3s var(--ease-out-circ);
+  transform-origin: bottom;
+  transform: scaleY(0.5);
+  height: 50%;
+}
+
+.card-details {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  color: black;
+  transform: translateY(50%);
+  transition: transform 0.3s var(--ease-out-circ);
+  box-shadow:
+    0 0 5px 0 rgba(0, 0, 0, 0.1),
+    0 0 7px 0 rgba(0, 0, 0, 0.1);
+}

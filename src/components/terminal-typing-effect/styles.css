@@ -1,0 +1,32 @@
+.typing-text {
+  font-family: monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 2px solid white;
+  animation:
+    typing 3s steps(var(--length)) forwards,
+    cursor-blink 0.7s step-end infinite;
+}
+
+/* Warning: This uses a width animation for the sake of learning */
+/* Width animations are bad because every time width changes, the browser has to recalculate the layout */
+/* Read this to learn about the browser and web performance: https://tigerabrodi.blog/web-performance-deep-dive-from-browser-internals-to-best-practices */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(var(--length) * 1ch + 0.25ch);
+  }
+}
+
+@keyframes cursor-blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}

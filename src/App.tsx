@@ -1,7 +1,9 @@
 import { Route, Routes } from 'react-router'
 import { AnimePowerUp } from './components/anime-power-up/anime-power-up'
 import { ChakraLoader } from './components/chakra-loader/chakra-loader'
+import { CharacterEffect } from './components/character-effect/character-effect'
 import { Coin } from './components/coin/coin'
+import { DockCards } from './components/dock-cards/dock-cards'
 import { DownloadButton } from './components/download-button/download-button'
 import { EnergyFlow } from './components/energy-flow/energy-flow'
 import { ImageGridHover } from './components/image-grid-hover/image-grid-hover'
@@ -67,6 +69,13 @@ function App() {
         <Route
           path={ROUTES.ownCreations.terminalTypingEffect}
           element={<TerminalTypingEffect />}
+        />
+
+        <Route path={ROUTES.ownCreations.dockCards} element={<DockCards />} />
+
+        <Route
+          path={ROUTES.ownCreations.characterEffect}
+          element={<CharacterEffect />}
         />
       </Route>
     </Routes>

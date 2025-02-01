@@ -15,5 +15,7 @@ export const ROUTES = {
     staggeredGridItem: '/staggered-grid-item',
     slideUpCards: '/slide-up-cards',
     terminalTypingEffect: '/terminal-typing-effect',
+    dockCards: '/dock-cards',
+    characterEffect: '/character-effect',
   },
 } as const
